@@ -11,7 +11,6 @@ urlpatterns = [
     path('deleted/(?P<id>)\w+)',views.deletedUser,name='deleted'),
     path('log',views.log,name='log'),
     path('login',views.login,name='login'),
-    path('register',views.register,name='register'),
     path('register', views.register, name='register'),
     path('registerDone', views.registerDone, name='registerDone'),
     path('educationAdd/(?P<id>)\w+)', views.educationSave, name='educationAdd'),
