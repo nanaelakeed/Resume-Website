@@ -36,16 +36,6 @@ class userUpdateForm(forms.ModelForm):
         ]
 
 
-class loginForm(forms.ModelForm):
-    class Meta:
-        model = user
-        fields = [
-            'user_email',
-            'user_password'
-
-        ]
-
-
 class educationUpdateForm(forms.ModelForm):
     class Meta:
         model = education

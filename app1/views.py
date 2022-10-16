@@ -3,8 +3,8 @@ import sys
 from django.contrib.auth import authenticate
 from django.shortcuts import render, redirect
 from app1.models import user, education, experience, course, skill
-from app1.forms import user_form, experienceForm, courseForm, skillForm, userUpdateForm, educationUpdateForm, aboutForm, \
-    loginForm
+from app1.forms import experienceForm, courseForm, skillForm, userUpdateForm, educationUpdateForm, aboutForm
+
 from django.shortcuts import get_object_or_404
 
 
@@ -50,6 +50,22 @@ def login(request):
 
 def register(request):
     return render(request, 'register.html')
+
+
+def registerDone(request):
+    fn = request.POST.get('firstname')
+    ln = request.POST.get('lastname')
+    age = request.POST.get('age')
+    ph = request.POST.get('phone')
+    e = request.POST.get('email')
+    p = request.POST.get('password')
+    c = request.POST.get('city')
+    co = request.POST.get('country')
+    jt = request.POST.get('joptitle')
+    user.objects.create(user_first_name=fn, user_password=p, user_email=e,
+                        user_age=age, user_city=c, user_country=co, user_jop_title=jt, user_phone=ph,
+                        user_last_name=ln)
+    return redirect('resume:log')
 
 
 def userUpdate(request, id):
